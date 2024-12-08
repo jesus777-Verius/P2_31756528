@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>veterinaria</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <img src="/img/147249-fondos-pc.jpg"class="iok">
+    <div class="color"></div>
+    <header><img src="" alt=""> <h1 class="titulo">Frilys</h1>
+    <nav>
+        <ul>
+             <li><a href="index.ejs" class="htmo">Home</a></li>
+             <li><a href="#fe4r" class="htmo">Servicios</a></li>
+        <li><a href="#fer" class="htmo">Nosotros</a></li>
+        </ul>
+    </nav></header>
+  
+<div class="conte">
+
+
+    <h2>Bienvenidos a frilys</h2>
+    <h2>Pasion y dedicacion ,</h2>
+    <h2>Salud y Bienestar para tu mascota</h2>
+     <h2>disfruta de nuestros Servicios </h2>
+     <h2>has tu pedido en linea</h2>
+
+     <p class="yu"> En Nuestra plataforma vas a encontrar equipos profesionales,
+        altamente calificados y con una amplia experiencias en cuidado de animales</p>
+
+
+        <button class="wer">LOGIN</button><button class="w"> REGISTRER</button>
+</div>
+
+<main>
+    <section class="Servicios" >
+     <h2 class="serrr" id="fe4r">Servicios</h2>
+     <div class="ser">
+        <img src="./img/20240625112352comportamientoybienestar.jpg" class="pi">
+        <h2 class="pol">Bienestar</h2>
+        <p>Tu peludo merece lo mejor. Nuestro equipo se dedica a proporcionar un ambiente acogedor y enriquecedor. 
+             </p>
+     </div>
+     <div class="ser">
+        <img src="./img/raleigh-animales-salvajes-scaled-e1688062991373.jpg" class="pi">
+        <h2 class="pol">Seguridad</h2>
+        <p>La seguridad es nuestra prioridad. Contamos con protocolos estrictos para garantizar un manejo seguro y profesional en cada procedimiento. 
+        </p>
+     </div>
+     <div class="ser">
+        <img src="./img/m_imveterinaria_lanzan_primera_lista_9918_25162340.jpg" class="pi">
+        <h2 class="pol">Medicinas</h2>
+        <p>Ofrecemos un enfoque integral en medicina preventiva y tratamientos especializados. </p>
+     </div>
+    </section>
+
+    <section class="ventas">
+
+        <h2 class="ani">Animales en Ventas</h2>
+        <div class="venr">
+            <img src="./img/black-wild-cat-puma-jaguar-animal-wallpaper-preview.jpg" class="puma">
+            <h2 class="ty">Pantera negra</h2>
+            <p class="ui">7$</p> <button class="button">comprar</button>
+        </div>
+        <div class="venr">
+            <img src="./img/6480712e4d70d.webp" class="puma">
+            <h2 class="ty">koala</h2>
+            <p class="ui">7$</p> <button class="button">comprar</button>
+        </div>
+        <div class="venr">
+            <img src="./img/images (1).jpeg" class="puma">
+            <h2 class="ty">Caballos</h2>
+            <p class="ui">7$</p> <button class="button">comprar</button>
+        </div>
+        <div class="venr">
+            <img src="./img/images.jpeg" class="puma">
+            <h2 class="ty">liones</h2>
+            <p class="ui">7$</p> <button class="button">comprar</button>
+        </div>
+    </section>
+    <section class="Nosotros">
+        <img src="./img/51166d85df4f323ede2367c944556d9c.jpg" class="cerf">
+        <h2 class="tey" id="fer">Nosotros</h2>
+        <p class="plo">somos un equipo apasionado de profesionales dedicados al cuidado y bienestar de tus mascotas. Con más de 10 años de experiencia, ofrecemos servicios de medicina preventiva, cirugía, y atención especializada, todo en un ambiente cálido y acogedor. Nos comprometemos a brindarte la mejor atención y asesoramiento para que tu compañero peludo viva una vida larga y saludable. ¡Visítanos y descubre por qué somos la elección preferida de los amantes de los animales! Tu mascota se merece lo mejor, y en Veterinaria Frilys, ¡lo hacemos posible!
+        </p>
+  </section>
+    <h2 id="g">Contacto</h2>
+
+    <form id="formulario">
+        <div class="centrar" id="modalDeContacto">
+
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" class="input-padron" placeholder="" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" class="input-padron" placeholder="email@dominio.com" required>
+
+        <label for="comentario">Comentario</label>
+        <textarea cols="70" rows="10" id="comentario" name="comentario" class="input-padron"></textarea required>
+        
+        <input type="submit" value="Enviar" class="enviar">
+    </div>
+
+    </form> 
+</main>
+
+<script>
+    document.getElementById('formulario').addEventListener('submit', async function(event) {
+        event.preventDefault();
+    
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData.entries());
+        const modalDeContacto = document.getElementById('modalDeContacto');
+
+        // Actualizar el contenido del modal
+        modalDeContacto.innerHTML = `<p>¡Formulario enviado con exito!</p>`;
+    
+        try {
+            const response = await fetch('/cargarDatos', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+    
+
+
+        } catch (error) {
+            // Mostrar error de conexión
+            const modalDeContacto = document.getElementById('modalDeContacto');
+            modalDeContacto.innerHTML = `<p>Error de conexión.</p>`;
+            console.error('Error:', error);
+        }
+    });
+    </script>
+
+</body>
+<footer> <a href="#"><img src="./img/mac-os.png" class="sasa"></a><a href="#"><img src="./img/20673.png" class="sasa"></a>
+
+</footer>
+</html>
