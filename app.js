@@ -1,24 +1,36 @@
-const express = require("express");
-const path = require("path");
-const app = express();
-const router = require("./router/appRouter.js");
-const bodyParser = require('body-parser');
-const ContactosController = require('./controllers/contactosController');
+const express = require('express');//modulo express
+const path = require('path');//camino --- rutas
+const app = express();//instancia de express
+const port = 4000;//port
+const cors = require('cors');
 
-app.use(express.static(path.join(__dirname,"/public")));
+const ContactosModel = require('./models/models.js');
 
-app.set("view engine","ejs");
-app.set("views",path.join(__dirname,"/views"));
+const routes = require('./routes/router.js');
 
+app.use(express.static(path.join(__dirname,'/static')));//ruta archivos estaticos 
+
+app.set('view engine','ejs');//motor EJS
+
+app.set('views',path.join(__dirname,'/views'));//ruta de las vistas
+
+app.use(cors());
+
+//definir archivos estaticos 
+app.use(express.static(path.join(__dirname,'/public')));
+
+app.set('view engine','ejs');
+app.set('views',path.join(__dirname,'/views'));
+
+//sirve para recibir los datos de la solicitud del cliente 
 app.use(express.urlencoded({extended:false}));
+//sirve para enviar o responderle al usuario 
 app.use(express.json());
 
-app.use("/",router);
+app.use('/',routes);
 
-app.use(bodyParser.urlencoded({ extended: true }));
-
-app.post('/cargarDatos', (req, res) => ContactosController.add(req, res));
-
-app.listen(3000, ()=>{
-    console.log("servidor escuchando",3000);
+app.listen(port,()=>{
+ console.log(`ruta completa del servidor : ${__dirname}`);
+ console.log(`Servidor corriendo en el puerto : ${port}`);	
 });
+

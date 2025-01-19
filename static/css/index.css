@@ -5,9 +5,21 @@
     color: #fdfafa;
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
+#map{
+    width:100%;
+    height:40vh;
+}
 body{
 background: #000;
 
+}
+#formulario{
+position: relative;
+}#formulario button{
+    position: absolute;
+    bottom:-10px;
+    width:50%;
+    height:50px;
 }
 nav{
     position: absolute;
