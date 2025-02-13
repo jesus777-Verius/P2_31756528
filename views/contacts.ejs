@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contacts</title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url("../img/147249-fondos-pc.jpg");
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .table-container {
+      overflow-x: auto;
+      margin: 20px auto;
+      max-width: 1000px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+    }
+
+    thead {
+      background-color: #007bff;
+      color: #fff;
+    }
+
+    th {
+      font-weight: bold;
+    }
+
+    tbody tr {
+      border-bottom: 1px solid #ddd;
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    tbody tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    tbody tr:last-child {
+      border-bottom: 2px solid #007bff;
+    }
+
+    td {
+      color: #555;
+    }
+  </style>
+</head>
+<body class="cuerpop">
+  <div class="table-container">
+    <h1>Contactos</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Email</th>
+          <th>Nombre</th>
+          <th>Comentario</th>
+          <th>IP del Cliente</th>
+          <th>Fecha y Hora</th>
+          <th>País</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% contactos.forEach(function(contacto) { %>
+          <tr>
+            <td><%= contacto.email %></td>
+            <td><%= contacto.nombre %></td>
+            <td><%= contacto.comentario %></td>
+            <td><%= contacto.clientIp %></td>
+            <td><%= contacto.fechaHora %></td>
+            <td><%= contacto.pais %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
